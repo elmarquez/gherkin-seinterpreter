@@ -1,0 +1,16 @@
+{
+    "aurin": {
+        "home": {
+            "portal_link": "xpath statement to select the portal link on the home page",
+            "url": "http://example.org/something"
+        },
+        "portal": {
+        },
+        "vho": {
+            "auth": {
+                "login_button": "xpath statement to select the login button",
+                "url": "http://dev.example.org"
+            }
+        }
+    }
+}

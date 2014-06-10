@@ -1,0 +1,15 @@
+{
+  "type": "suite",
+  "seleniumVersion": "2",
+  "formatVersion": 1,
+  "scripts": [
+    {
+      "where": "local",
+      "path": "case1.json"
+    },
+    {
+      "where": "local",
+      "path": "case2.json"
+    }
+  ]
+}

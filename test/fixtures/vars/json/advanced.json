@@ -1,0 +1,77 @@
+{
+    "user": "USER",
+    "deployment": "VERSION",
+    "portalUrl": "http://localhost/app/index-development.html?userId={{user}}&deployment={{deployment}}",
+    "portal" : {
+        "authentication": {
+            "steps": [
+                {
+                    "type": "get",
+                    "url": "{{portal.path}}"
+                },
+                {
+                    "type": "clickElement",
+                    "locator": {
+                        "type": "id",
+                        "value": "userIdPSelection_iddicon"
+                    }
+                },
+                {
+                    "type": "clickElement",
+                    "locator": {
+                        "type": "xpath",
+                        "value": "//div[@id='userIdPSelection_iddlist']//div[.='Button Name']"
+                    }
+                }
+            ]
+        },
+        "auth": [
+            {
+                "type": "get",
+                "url": "{{portal.path}}"
+            },
+            {
+                "type": "clickElement",
+                "locator": {
+                    "type": "id",
+                    "value": "userIdPSelection_iddicon"
+                }
+            },
+            {
+                "type": "clickElement",
+                "locator": {
+                    "type": "xpath",
+                    "value": "//div[@id='userIdPSelection_iddlist']//div[.='Button Name']"
+                }
+            }
+        ],
+        "path": "/an/xpath/to/an/anchor"
+    },
+    "sample": {
+        "area": {
+            "steps": [
+                {
+                    "type": "clickElement",
+                    "locator": {
+                        "type": "id",
+                        "value": "/xpath/to/dataset/button"
+                    }
+                },
+                {
+                    "type": "clickElement",
+                    "locator": {
+                        "type": "id",
+                        "value": "/xpath/to/select/dataset"
+                    }
+                },
+                {
+                    "type": "clickElement",
+                    "locator": {
+                        "type": "id",
+                        "value": "/xpath/to/add/dataset/button"
+                    }
+                }
+            ]
+        }
+    }
+}

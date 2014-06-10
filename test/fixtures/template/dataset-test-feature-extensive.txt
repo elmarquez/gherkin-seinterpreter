@@ -1,0 +1,22 @@
+Feature: {{title}}
+    Select the __AREA__ area.
+    The "{{title}}" data set should be present in the Data Shopping popup.
+    Selecting the "{{title}}" data set should update the "Available Attributes" pane.
+    The "Available Attributes" pane should display one or more attributes.
+
+    Scenario: Select the data set from the Available Datasets pane
+        The data set title should appear in the Title field
+        The data set organisation should appear in the Organisation field
+        Given I am logged into the aurin.portal
+        And I have selected the
+
+    Scenario: Keyword search
+
+    Scenario: Organisation search
+
+    Scenario: Keyword and Organisation search
+
+    Scenario: Mouse over the data set row displays the description tooltip
+
+    Scenario: Add data set
+        The data set should appear in the "Select your Data" pane

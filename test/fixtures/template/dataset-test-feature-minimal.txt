@@ -1,0 +1,11 @@
+Feature: {{_id}}
+    The {{title}} data set should be listed in the Available Datasets panel.
+    Selecting the data set should update the Available Attributes panel.
+    The Available Attributes panel should display one or more attributes.
+    Clicking the Add Dataset button should add the data set to the Select your data panel.
+
+    Scenario: Select the data set from the Available Datasets pane
+        Given each step in sample.login.steps
+        And each step in sample.area.steps
+        And I click sample.dataset.button
+        Then I should see "{{title}}" in the sample.availableDatasets.list

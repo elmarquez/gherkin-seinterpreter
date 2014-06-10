@@ -1,0 +1,16 @@
+{
+    "type": "script",
+    "seleniumVersion": "2",
+    "formatVersion": 2,
+    "steps": [
+        {
+            "type": "get",
+            "url": "{{portal.path}}?userId={{portal.user}}"
+        }
+    ],
+    "data": {
+        "configs": {},
+        "source": "none"
+    },
+    "inputs": []
+}

@@ -1,0 +1,6 @@
+{
+    "userId": "USER",
+    "deployment": "VERSION",
+    "auraVisualizationButton": "tool-1059-abcdef",
+    "portalUrl": "http://localhost/app/index-development.html?userId={{userId}}&deployment={{deployment}}"
+}

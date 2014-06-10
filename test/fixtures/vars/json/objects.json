@@ -1,0 +1,20 @@
+{
+    "getPortalPage": {
+        "type": "get",
+        "url": "{{portalUrl}}"
+    },
+    "clickVisualizationButton": {
+        "type": "clickElement",
+        "locator": {
+            "type": "id",
+            "value": "{{auraVisualizationButton}}"
+        }
+    },
+    "selectChloroplethVisualization": {
+        "type": "clickElement",
+        "locator": {
+            "type": "id",
+            "value": "{{auraVisualizationButton}}"
+        }
+    }
+}

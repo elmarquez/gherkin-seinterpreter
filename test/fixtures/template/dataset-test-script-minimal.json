@@ -1,0 +1,23 @@
+{
+    "type": "script",
+    "seleniumVersion": "2",
+    "formatVersion": 2,
+    "steps": [
+        {
+            "type": "get",
+            "url": "http://aurin.org.au"
+        }
+    ],
+    "data": {
+        "configs": {},
+        "source": "none"
+    },
+    "inputs": [],
+    "timeoutSeconds": 60,
+    "_id": "{{_id}}",
+    "_generated": "{{generated}}",
+    "_name": "{{title}}",
+    "_description": [
+        "Confirm that the specified data is available in the target environment."
+    ]
+}

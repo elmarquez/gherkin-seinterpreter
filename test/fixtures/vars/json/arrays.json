@@ -1,0 +1,7 @@
+{
+    "create-chloropleth-visualization": [
+        "{{getPortalPage}}",
+        "{{clickVisualizationButton}}",
+        "{{selectChloroplethVisualization}}"
+    ]
+}
