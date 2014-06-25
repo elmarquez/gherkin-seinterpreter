@@ -106,7 +106,6 @@ module.exports = {
             vars.name = key;
             vars.slug = S(name).slugify().s;
             if (cfg.testCaseFilename) {
-                console.log("Using custom file name");
                 filename = S(cfg.testCaseFilename).template(vars).s;
             } else {
                 filename = module.exports.getTestCaseFileName(name, i.toString());
