@@ -3,8 +3,8 @@
 Compile Gherkin DSL into Selenium Interpreter compatible test case and test 
 suite scripts.
 
-The current implementation does not yet support all features of the Gherkin
-DSL.
+Please note that the current implementation does not yet support all features 
+of the Gherkin DSL.
 
 
 ## Getting Started
@@ -105,3 +105,12 @@ grunt.initConfig({
 In lieu of a formal style guide, take care to maintain the existing coding
 style. Add unit tests for any new or changed functionality. Lint and test 
 your code using [Grunt](http://gruntjs.com/).
+
+
+## Backlog
+
+The following tasks are currently identified for future completion:
+
+ * File naming by template
+ * Updated and improved documentation with examples 
+ * Fill in missing unit tests

@@ -76,6 +76,22 @@ module.exports = function (grunt) {
                     'test/fixtures/vars/json/advanced.json',
                     'test/fixtures/vars/sample.properties'
                 ]
+            },
+            revision: {
+                cwd: 'test/fixtures/features',
+                dest: 'tmp/revision',
+                exportTestSuite: false,
+                src: [
+                    'sample.feature',
+                    '!**/*.invalid.feature'
+                ],
+                steps: 'test/fixtures/steps/steps1.js',
+                testCaseFilename: '{{id}}-{{index}}.json',
+                testSuiteFilename: '{{id}}.suite.json',
+                vars: [
+                    'test/fixtures/vars/json/advanced.json',
+                    'test/fixtures/vars/sample.properties'
+                ]
             }
         },
         jshint: {
