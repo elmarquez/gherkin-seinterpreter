@@ -81,7 +81,8 @@ module.exports = {
         if (module.exports.recursions++ >= module.exports.MAX_RECURSIONS) {
             // reset the count so that subsequent runs won't break
             module.exports.recursions = 0;
-            throw new Error("Maximum number of recursions exceeded. There may be a cycle in the graph, involving node %s.", json);
+            json = JSON.stringify(json);
+            throw new Error("Maximum number of recursions exceeded. There may be a cycle in the graph, involving node " + json);
         }
         // Look for nodes in the json object that are strings. These nodes may
         // contain template placeholders of the form {{variable.name}}. We need
