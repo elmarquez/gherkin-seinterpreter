@@ -25,24 +25,27 @@ describe('vars', function () {
     var count, i, keys, map, src;
 
     describe('module', function () {
-        it('should load', function () {
+        it('should load', function (done) {
             expect(Vars).not.to.be.null;
+            done();
         });
-        it('should have the expected number of members', function () {
+        it('should have the expected number of members', function (done) {
             keys = Object.keys(Vars);
             expect(keys.length).to.equal(7);
+            done();
         });
     });
 
     describe('load function', function () {
-        it('should load a single JSON source', function () {
+        it('should load a single JSON source', function (done) {
             src = ['test/fixtures/vars/json/simple.json'];
             map = Vars.load(src);
             keys = Object.keys(map);
             expect(map).to.be.an.instanceof(Object);
             expect(keys.length).to.equal(3);
+            done();
         });
-        it('should load multiple JSON sources', function () {
+        it('should load multiple JSON sources', function (done) {
             src = [
                 'test/fixtures/vars/json/strings.json',
                 'test/fixtures/vars/json/objects.json'
@@ -51,8 +54,9 @@ describe('vars', function () {
             keys = Object.keys(map);
             expect(map).to.be.an.instanceof(Object);
             expect(keys.length).to.equal(7);
+            done();
         });
-        it('should load a single properties file', function () {
+        it('should load a single properties file', function (done) {
             src = ['test/fixtures/vars/properties/test1.properties'];
             map = Vars.load(src);
             expect(map).to.be.an.instanceof(Object);
@@ -63,8 +67,9 @@ describe('vars', function () {
                 }
             });
             expect(count).to.equal(6);
+            done();
         });
-        it('should load multiple properties files', function () {
+        it('should load multiple properties files', function (done) {
             src = [
                 'test/fixtures/vars/properties/test1.properties',
                 'test/fixtures/vars/properties/test2.properties'
@@ -77,17 +82,19 @@ describe('vars', function () {
                 }
             });
             expect(count).to.equal(6);
+            done();
         });
-        it('should load a javascript file', function () {
+        it('should load a javascript file', function (done) {
             src = ['test/fixtures/vars/functions/func1.js'];
             for (i = 0; i < src.length; i++) {
-                map = Vars.load(src[i]);
+                map = Vars.load(src);
                 keys = Object.keys(map);
                 expect(map).to.be.an.instanceof(Object);
                 expect(keys.length).to.equal(2);
             }
+            done();
         });
-        it('should load multiple javascript files', function () {
+        it('should load multiple javascript files', function (done) {
             src = [
                 'test/fixtures/vars/functions/func1.js',
                 'test/fixtures/vars/functions/func2.js'
@@ -95,8 +102,9 @@ describe('vars', function () {
             map = Vars.load(src);
             keys = Object.keys(map);
             expect(keys.length).to.equal(4);
+            done();
         });
-        it('should load json, properties, and javascript files together', function () {
+        it('should load json, properties, and javascript files together', function (done) {
             src = [
                 'test/fixtures/vars/json/strings.json',
                 'test/fixtures/vars/json/objects.json',
@@ -108,11 +116,23 @@ describe('vars', function () {
             map = Vars.load(src);
             keys = Object.keys(map);
             expect(keys.length).to.equal(15);
+            done();
+        });
+        it('should load property definitions and file objects together', function (done) {
+            src = [
+                { TEST: 'PASSED' },
+                'test/fixtures/vars/json/strings.json'
+            ];
+            map = Vars.load(src);
+            keys = Object.keys(map);
+            expect(keys.length).to.equal(5);
+            expect(map.TEST).to.equal('PASSED');
+            done();
         });
     });
 
     describe('resolve function', function () {
-        it('should resolve string references', function () {
+        it('should resolve string references', function (done) {
             var subs = {
                 "a": "value",
                 "b": "{{a}}",
@@ -127,15 +147,17 @@ describe('vars', function () {
             var result_str = JSON.stringify(result);
             var expected_str = JSON.stringify(expected);
             expect(result_str).to.equal(expected_str);
+            done();
         });
-        it('should update all placeholders in the simple.json substitution map', function () {
+        it('should update all placeholders in the simple.json substitution map', function (done) {
             src = ['test/fixtures/vars/json/simple.json'];
             map = Vars.load(src);
             var map_before = _.cloneDeep(map);
             var map_after = Vars.resolve(map);
             expect(map_after).not.to.equal(map_before);
+            done();
         });
-        it('should throw an exception when there is a cycle in the graph', function () {
+        it('should throw an exception when there is a cycle in the graph', function (done) {
             src = ['test/fixtures/vars/json/cycle.json'];
             var f = function () {
                 for (i = 0; i < src.length; i++) {
@@ -144,6 +166,7 @@ describe('vars', function () {
                 }
             };
             expect(f).to.throw(Error);
+            done();
         });
     });
 

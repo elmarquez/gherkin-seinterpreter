@@ -1,6 +1,7 @@
 ~*
 NOTES
 .idea
+atlassian-ide-plugin.xml
 node_modules
 npm-debug.log
 tmp

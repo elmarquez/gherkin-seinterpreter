@@ -34,8 +34,19 @@ module.exports = {
      * @returns {*} Variables map.
      */
     load: function (src) {
-        var data, i, map = {}, path, paths = grunt.file.expand(src);
+        var data, files = [], i, map = {}, path, paths = [];
+        // variables may be specified either as an object containing variable
+        // definitions or as paths to files containing variable definitions
+        // separate the file paths from the variable objects here.
+        src.forEach(function (item) {
+            if (item instanceof Object || item instanceof Function) {
+                map = merge(item, map);
+            } else {
+                files.push(item);
+            }
+        });
         // Load each step definition file and merge it into the map.
+        paths = grunt.file.expand(files);
         for (i = 0; i < paths.length; i++) {
             path = S(paths[i]);
             grunt.log.debug("Loading variable definitions from '%s'", path.s);

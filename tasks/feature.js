@@ -17,7 +17,6 @@ var seinterpreter = require('./seinterpreter');
 
 /**
  * Feature
- *
  */
 module.exports = {
 
